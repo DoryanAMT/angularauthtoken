@@ -1,0 +1,19 @@
+<div>
+    <h1>Subordinados</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>apellido</th>
+                <th>oficio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (subordinado of subordinados; track subordinado){
+                <tr>
+                    <td>{{subordinado.apellido}}</td>
+                    <td>{{subordinado.oficio}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

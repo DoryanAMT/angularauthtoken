@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ServiceLogin } from '../../services/service.login';
+import { ServiceEmpleados } from '../../services/service.empleados';
 import { Router } from '@angular/router';
 import { Login } from '../../models/login';
 import { Empleado } from '../../models/empleado';
@@ -18,7 +18,7 @@ export class LoginComponent {
   public empleados !: Array<Empleado>;
   
   constructor(
-    private _service: ServiceLogin,
+    private _service: ServiceEmpleados,
     private _router: Router
   ){}
 
@@ -28,18 +28,13 @@ export class LoginComponent {
     let login = new Login(userName,password);
 
     this._service.authLogin(login).subscribe(response => {
-      this.token = response;
+      this._service.token = response.response;
+      this._router.navigate(["/"])
       console.log(response)
-      this._service.getEmpleados(this.token).subscribe(response => {
-        console.log(response)
-      })
     })
+    
   }
 
-  // loadEmpleados(token:string):void{
-  //   this._service.getEmpleados(token).subscribe(response => {
-  //     this.empleados = response
-  //   })
-  // }
+  
 
 }

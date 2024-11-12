@@ -2,15 +2,11 @@
     <h1>login</h1>
 
     <form #loginForm="ngForm">
-        <label>Nombre: </label>
-        <input type="text" name="cajausername" #cajausername >
-        <label>Password: </label>
-        <input type="text" name="cajapassword" #cajapassword >
-        <button (click)="login()">log in</button>
+        <label class="form-label">Nombre: </label>
+        <input type="text" name="cajausername" #cajausername value="REY" class="form-control">
+        <label class="form-label">Password: </label>
+        <input type="text" name="cajapassword" #cajapassword value="7839" class="form-control">
+        <button (click)="login()" class="btn btn-primary">log in</button>
     </form>
 
-    <div>
-        
-
-    </div>
 </div>

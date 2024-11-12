@@ -10,12 +10,22 @@ import { provideHttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { ServiceLogin } from './services/service.login';
+import { ServiceEmpleados } from './services/service.empleados';
+import { MenuComponent } from './components/menu/menu.component';
+import { EmpleadosComponent } from './components/empleados/empleados.component';
+import { HomeComponent } from './components/home/home.component';
+import { SubordinadosComponent } from './components/subordinados/subordinados.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent,
+    EmpleadosComponent,
+    HomeComponent,
+    SubordinadosComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,9 +33,8 @@ import { ServiceLogin } from './services/service.login';
     FormsModule
   ],
   providers: [
-    AppRoutingModule,
     provideHttpClient(),
-    ServiceLogin
+    ServiceEmpleados
   ],
   bootstrap: [AppComponent]
 })
