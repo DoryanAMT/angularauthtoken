@@ -16,6 +16,7 @@ import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { HomeComponent } from './components/home/home.component';
 import { SubordinadosComponent } from './components/subordinados/subordinados.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ServiceEmpleadosAxios } from './services/service.empleadosaxios';
 
 @NgModule({
   declarations: [
@@ -30,11 +31,12 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     provideHttpClient(),
-    ServiceEmpleados
+    ServiceEmpleados,
+    ServiceEmpleadosAxios,
   ],
   bootstrap: [AppComponent]
 })

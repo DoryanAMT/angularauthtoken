@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceEmpleados } from '../../services/service.empleados';
+// import { ServiceEmpleados } from '../../services/service.empleados';
 import { Router } from '@angular/router';
 import { Empleado } from '../../models/empleado';
+import { ServiceEmpleadosAxios } from '../../services/service.empleadosaxios';
 
 @Component({
   selector: 'app-empleados',
@@ -12,7 +13,7 @@ export class EmpleadosComponent implements OnInit{
   public empleados!: Array<Empleado>;
 
   constructor(
-    private _service: ServiceEmpleados,
+    private _service: ServiceEmpleadosAxios,
     private _router: Router
   ){}
 
@@ -20,8 +21,13 @@ export class EmpleadosComponent implements OnInit{
     if (this._service.token == "") {
       this._router.navigate(["/login"]);
     }else{
-      this._service.getEmpleados().subscribe(response => {
-        this.empleados = response
+      // this._service.getEmpleados().subscribe(response => {
+      //   this.empleados = response
+      // })
+
+      this._service.getEmpleados().then(result => {
+        console.log(result)
+        this.empleados = result
       })
     }
   }
